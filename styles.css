@@ -382,8 +382,4 @@ input[type="number"]::-webkit-outer-spin-button {
   h5 {
     margin-top: 5px;
   }
-  .container {
-    width: 250px;
-    height: 100px;
-  }
 }
