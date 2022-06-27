@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Pomodoro Timer</title>
+  </head>
+  <body>
+    <h1>Pomodoro Timer</h1>
+    <div class="control-bar">
+      <input type="radio" name="pomodoro-type" id="type-1" checked value="1"/>
+      <label for="type-1" class="btn mode-bar">Pomodoro</label>
+      <input type="radio" name="pomodoro-type" id="type-2" value="2"/>
+      <label for="type-2" class="btn mode-bar">Short break</label>
+      <input type="radio" name="pomodoro-type" id="type-3" value="3"/>
+      <label for="type-3" class="btn mode-bar">Long break</label>
+    </div>
+    <div class="container">
+      <div class="timer-border">
+        <div class="timer-wrap">
+          <svg>
+            <circle cx="150" cy="150" r="140" />
+          </svg>
+        </div>
+      </div>
+      <div class="content-container">
+        <p id="countdown">15:00</p>
+        <button class="btn start-button">START</button>
+      </div>
+    </div>
+    <label for="modal-btn" class="btn settings">
+      <img src="./assets/icon-settings.svg" alt="icon-settings" />
+      <span>Settings</span>
+    </label>
+    
+     <!-- Modal  -->
+    
+    <input type="checkbox" id="modal-btn" />
+    <div class="container-modal">
+      <div class="content-modal">
+
+          <h2>Settings</h2>
+  
+          <!-- <form> -->
+            <section>
+
+              <h5 id="time-header">TIME (MINUTES)</h5>
+              <div class="select-time">
+                <div class="set-minutes">
+                  <label for="time-pomo">Pomodoro</label>
+                  <input type="number" class="set-time" id="time-pomo">
+                </div>
+                <div class="set-minutes">
+                  <label for="time-short">Short brake</label>
+                  <input type="number" class="set-time" id="time-short">
+                </div>
+                <div class="set-minutes">
+                  <label for="time-long">Long brake</label>
+                  <input type="number" class="set-time" id="time-long">
+                </div>
+              </div>
+            </section>
+            
+            <section class="select-font">
+              <h5>FONT</h5>
+              <div class="font-radio">
+                <input type="radio" name="font" id="font-1" value="'Kumbh Sans', sans-serif" checked />
+                <label for="font-1" class="font-1">Aa</label>
+                <input type="radio" name="font" id="font-2" value="'Roboto Slab', serif" />
+                <label for="font-2" class="font-2">Aa</label>
+                <input type="radio" name="font" id="font-3" value="'Space Mono', monospace" />
+                <label for="font-3" class="font-3">Aa</label>
+              </div>
+            </section>
+            
+            <section class="select-color">
+              <h5>COLOR</h5>
+              <div class="color-radio">
+                <input type="radio" name="color" id="color-1" value="#f87070" checked />
+                <label for="color-1" class="red"></label>
+                <input type="radio" name="color" id="color-2" value="#70f3f8" />
+                <label for="color-2" class="blue"></label>
+                <input type="radio" name="color" id="color-3" value="#d881f8" />
+                <label for="color-3" class="purple"></label>
+              </div>
+            </section>
+            <div class="apply-container">
+                <label for="modal-btn" class="btn apply">Apply</label>
+            </div>
+          <!-- </form> -->
+        <div class="btn-close">
+          <label for="modal-btn">x</label>
+        </div>
+      </div>
+      <label for="modal-btn" class="background"></label>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
