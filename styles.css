@@ -16,7 +16,8 @@
 }
 
 body {
-  height: 95vh;
+  height: 100vh;
+  overflow-y: hidden;
   font-family: var(--main-font);
   background-color: #1e213f;
   color: #d7e0ff;
