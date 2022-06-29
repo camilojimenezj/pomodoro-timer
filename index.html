@@ -21,13 +21,16 @@
       <div class="timer-border">
         <div class="timer-wrap">
           <svg>
-            <circle cx="150" cy="150" r="140" />
+            <circle cx="150" cy="150" r="140" id="circle"/>
           </svg>
         </div>
       </div>
       <div class="content-container">
         <p id="countdown">15:00</p>
-        <button class="btn start-button">START</button>
+        <button class="btn start-button active">START
+          <button class="btn pause-button">PAUSE</button>
+        </button>
+        
       </div>
     </div>
     <label for="modal-btn" class="btn settings">

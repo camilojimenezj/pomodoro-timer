@@ -1,20 +1,25 @@
 let barInterval;
 const $html = document.documentElement;
+let porcentage;
 
-export function progressBar(minutes) {
-  let porcentage = 100;
-
+export function progressBar(minutes, status) {
+  porcentage = status;
   barInterval = setInterval(() => {
-    porcentage -= 10 / (minutes * 60);
+    porcentage -= status / (minutes * 60);
     $html.style.setProperty("--porcentage", porcentage);
 
     if (porcentage <= 0) {
       clearInterval(barInterval);
     }
-  }, 100);
+  }, 1000);
 }
 
 export function clearBar() {
   clearInterval(barInterval);
   $html.style.setProperty("--porcentage", 100);
+}
+
+export function pauseBar() {
+  clearInterval(barInterval);
+  return porcentage;
 }

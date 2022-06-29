@@ -1,8 +1,10 @@
-import { progressBar, clearBar } from "./js/bar.js";
+import { progressBar, clearBar, pauseBar } from "./js/bar.js";
 import { countdown, clearCount } from "./js/countdown.js";
 
 const d = document;
+const w = window;
 const $html = d.documentElement;
+const ls = localStorage;
 
 // Define time variables
 
@@ -10,14 +12,18 @@ let pomodoroMinutes = 15;
 let shortBreak = 5;
 let longBreak = 10;
 let currentMode = 15;
+let barPorcentage = 100;
 
 // Get mode
 
 d.addEventListener("click", (e) => {
   setTimeout(() => {
     if (e.target.matches(".mode-bar") || e.target.matches(".apply")) {
+      barPorcentage = 100;
+      $startButton.classList.add("active");
       clearBar();
       clearCount();
+      $pauseButton.classList.remove("active");
       const $mode = d.getElementsByName("pomodoro-type");
       const $countdown = d.getElementById("countdown");
 
@@ -49,12 +55,20 @@ d.addEventListener("click", (e) => {
 // Start countdown
 
 const $startButton = d.querySelector(".start-button");
+const $pauseButton = d.querySelector(".pause-button");
 
 $startButton.addEventListener("click", (e) => {
-  clearBar();
-  clearCount();
-  progressBar(currentMode);
+  $pauseButton.classList.add("active");
+  $startButton.classList.remove("active");
+  progressBar(currentMode, barPorcentage);
   countdown("countdown", currentMode);
+});
+
+$pauseButton.addEventListener("click", (e) => {
+  $pauseButton.classList.remove("active");
+  $startButton.classList.add("active");
+  barPorcentage = pauseBar();
+  currentMode = clearCount() / 60;
 });
 
 // Settings
@@ -80,6 +94,7 @@ $applyButton.addEventListener("click", (e) => {
   $fontSettings.forEach((elem) => {
     if (elem.checked) {
       $html.style.setProperty("--main-font", elem.value);
+      ls.setItem("font", elem.value);
     }
   });
 
@@ -90,6 +105,22 @@ $applyButton.addEventListener("click", (e) => {
   $colorSettings.forEach((elem) => {
     if (elem.checked) {
       $html.style.setProperty("--main-color", elem.value);
+      ls.setItem("color", elem.value);
     }
   });
+});
+
+d.addEventListener("DOMContentLoaded", (e) => {
+  // Color local storage
+
+  if (ls.getItem("color") === "#70f3f8")
+    $html.style.setProperty("--main-color", "#70f3f8");
+  if (ls.getItem("color") === "#d881f8")
+    $html.style.setProperty("--main-color", "#d881f8");
+
+  // Font local storage
+  if (ls.getItem("font") === "'Roboto Slab', serif")
+    $html.style.setProperty("--main-font", "'Roboto Slab', serif");
+  if (ls.getItem("font") === "'Space Mono', monospace")
+    $html.style.setProperty("--main-font", "'Space Mono', monospace");
 });

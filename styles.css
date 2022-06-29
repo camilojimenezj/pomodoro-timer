@@ -85,6 +85,7 @@ svg circle {
 }
 
 .btn {
+  user-select: none;
   font-family: var(--main-font);
   background-color: #1e213f;
   color: #d7e0ff;
@@ -97,6 +98,24 @@ svg circle {
 .btn:hover {
   background-color: var(--main-color);
   cursor: pointer;
+}
+
+.start-button {
+  position: relative;
+  visibility: hidden;
+}
+
+.pause-button {
+  display: none;
+  padding: 10px;
+  background-color: #161932;
+  position: absolute;
+  bottom: 3px;
+}
+
+.active {
+  display: block;
+  visibility: visible;
 }
 
 .content-container button {
