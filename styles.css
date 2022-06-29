@@ -93,6 +93,7 @@ svg circle {
   padding: 10px;
   border-radius: 100vmax;
   border: 0;
+  user-select: none;
 }
 
 .btn:hover {
