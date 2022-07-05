@@ -8,7 +8,7 @@ export function progressBar(minutes, status) {
     porcentage -= status / (minutes * 60);
     $html.style.setProperty("--porcentage", porcentage);
 
-    if (porcentage <= 0) {
+    if (porcentage <= 0.1) {
       clearInterval(barInterval);
     }
   }, 1000);

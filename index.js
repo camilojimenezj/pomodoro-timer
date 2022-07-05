@@ -2,7 +2,6 @@ import { progressBar, clearBar, pauseBar } from "./js/bar.js";
 import { countdown, clearCount } from "./js/countdown.js";
 
 const d = document;
-const w = window;
 const $html = d.documentElement;
 const ls = localStorage;
 
